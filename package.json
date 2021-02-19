@@ -1,0 +1,19 @@
+{
+  "name": "vivo",
+  "version": "1.0.0",
+  "description": "vivo challenge",
+  "main": "server.js",
+  "scripts": {
+    "dev": "start server.js"
+  },
+  "type": "module",
+  "author": "William Lima",
+  "license": "ISC",
+  "dependencies": {
+    "body-parser": "^1.19.0",
+    "expres": "0.0.5",
+    "express": "^4.17.1",
+    "express-route-validator": "^0.2.5",
+    "mongoose": "^5.11.17"
+  }
+}
