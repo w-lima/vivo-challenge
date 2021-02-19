@@ -9,6 +9,7 @@ const routes = new express.Router();
 //bot routes
 routes.post('/bots', routeValidator.validate(validator.BOT_POST_VALIDADE), botsControler.create);
 routes.get('/bots/:id', botsControler.find);
+routes.delete('/bots/:id', botsControler.delete);
 
 //messages routes
 routes.post('/messages', messageControler.create);
