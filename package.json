@@ -2,9 +2,9 @@
   "name": "vivo",
   "version": "1.0.0",
   "description": "vivo challenge",
-  "main": "index.js",
+  "main": "sr/index.js",
   "scripts": {
-    "local": "nodemon index.js"
+    "local": "nodemon src/index.js"
   },
   "type": "module",
   "author": "William Lima",
