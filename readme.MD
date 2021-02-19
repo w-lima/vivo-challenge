@@ -9,4 +9,5 @@ MongoDB shell version v4.4.3
 Após ter iniciado o serviço do banco, utilizar os seguintes comandos:
 
 ``npm install``
+
 ``npm run local``
