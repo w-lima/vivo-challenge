@@ -36,6 +36,23 @@ class BotsControler {
             return res.json(item)
         });
     }
+
+    async att(req,res){
+        let query = {
+            id: req.params.id 
+        }
+        let update = {
+            name: req.params.name
+        }
+        await botModel.findOneAndUpdate(query, update,(err, item) =>{
+            if(err){
+                return res.status(400).send({
+                    error: err.message
+                  });
+            }
+            return res.json(item)
+        });
+    }
 }
 
 export default new BotsControler();
