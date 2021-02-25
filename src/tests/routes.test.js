@@ -94,4 +94,21 @@ describe('message routes', () => {
     expect(response.body).not.toBeNull();
     done();
   });
+
+  it('put should not exist', async (done) => {
+    const response = await request.put('/messages');
+
+    expect(response.status).toEqual(404);
+    expect(response.body).not.toBeNull();
+    done();
+  });
+
+  it('del should not exist', async (done) => {
+    const response = await request.del('/messages');
+
+    expect(response.status).toEqual(404);
+    expect(response.body).not.toBeNull();
+    done();
+  });
+
 });
