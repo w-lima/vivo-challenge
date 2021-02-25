@@ -13,8 +13,7 @@ class BotsControler {
     }
 
     async delete(req, res) {
-        console.log(req.params)
-        await botModel.deleteOne({id: req.params.id}, (err) => {
+        await botModel.deleteOne({ id: req.params.id }, (err) => {
             if (err) {
                 return res.status(409).json(constant.fail)
             }
