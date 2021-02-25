@@ -10,7 +10,7 @@ class MessageControler {
             }
             return res.json(constants.success)
         })
-        return res.res.status(500).json(constant.fail);
+        return res.status(500).json(constant.fail);
     }
 
     async find(req, res) {
@@ -19,7 +19,7 @@ class MessageControler {
         }
         await messageModel.findOneAndUpdate(query, (err, item) => {
             if (err) {
-                return res.status(400).json(constants.fail)
+                return res.status(440).json(constants.fail)
             }
             return res.json(item)
         });
@@ -31,7 +31,7 @@ class MessageControler {
         }
         await messageModel.find(query, (err, item) => {
             if (err) {
-                return res.status(400).json(constants.fail)
+                return res.status(404).json(constants.fail)
             }
             return res.json(item)
         });
