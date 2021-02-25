@@ -3,14 +3,21 @@ import messageModel from '../models/messageModel.js'
 
 class MessageControler {
     async create(req, res) {
-        return res.json();
+        let message = new messageModel(req.body)
+        await message.save((err) => {
+            if (err) {
+                return res.status(409).json(constant.fail)
+            }
+            return res.json(constants.success)
+        })
+        return res.res.status(500).json(constant.fail);
     }
 
     async find(req, res) {
         let query = {
             id: req.params.id
         }
-        await messageModel.findOne(query, (err, item) => {
+        await messageModel.findOneAndUpdate(query, (err, item) => {
             if (err) {
                 return res.status(400).json(constants.fail)
             }
