@@ -4,12 +4,13 @@ import messageModel from '../models/messageModel.js'
 class MessageControler {
     create(req, res) {
         let message = new messageModel(req.body)
-        return message.save().then(data => {
-            return res.json(data)
-        })
-        .catch(err => {
-            return res.status(500).json(constants.fail)
-        });
+        return message.save()
+            .then(data => {
+                return res.json(data)
+            })
+            .catch(err => {
+                return res.status(500).json(constants.fail)
+            });
     }
 
     find(req, res) {
@@ -33,7 +34,7 @@ class MessageControler {
             .then(data => {
                 return res.json(data)
             })
-            .catch(err =>{
+            .catch(err => {
                 return res.status(500).json(constants.fail)
             });
     }

@@ -3,9 +3,10 @@ import constant from '../constants.js'
 class BotsControler {
     create(req, res) {
         let bot = new botModel(req.body)
-        return bot.save().then(data => {
-            return res.json(data)
-        })
+        return bot.save()
+            .then(data => {
+                return res.json(data)
+            })
             .catch(err => {
                 return res.status(500).json(constants.fail)
             })
