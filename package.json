@@ -6,7 +6,7 @@
   "scripts": {
     "local": "nodemon src/index.js",
     "test": "jest --silent",
-    "test:watch": "jest --watch"
+    "test:watch": "jest --watch --silent"
   },
   "type": "module",
   "author": "William Lima",
