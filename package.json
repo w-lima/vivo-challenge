@@ -5,7 +5,7 @@
   "main": "sr/index.js",
   "scripts": {
     "local": "nodemon src/index.js",
-    "test": "jest",
+    "test": "jest --silent",
     "test:watch": "jest --watch"
   },
   "type": "module",
