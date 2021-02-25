@@ -1,11 +1,7 @@
-import app from '../index.js' // Link to your server file
+import app from '../index.js'
 import supertest from 'supertest'
 
-const request = supertest(app)
-
-// afterEach(async () => {
-//   await app.close();
-// });
+const request = supertest.agent(app)
 
 describe('bot routes', () => {
   
