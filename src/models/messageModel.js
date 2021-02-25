@@ -10,4 +10,6 @@ const MessageSchema = mongoose.Schema(
   }
 );
 
+mongoose.set('useCreateIndex', true);
+
 export default mongoose.model('Message', MessageSchema);
