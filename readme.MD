@@ -1,17 +1,37 @@
 # Vivo challenge
 
-Para rodar o serviço foi utilizado as seguintes versões:
-
-NPM v6.13.6
-
-Node v13.8.0
-
-MongoDB shell version v4.4.3
+This project consist of a HTTP/REST backend and a database
 
 ---
+## Versions
+To run the service, the following versions were used:
 
-Após ter iniciado o serviço do banco, utilizar os seguintes comandos:
+```
+NPM v6.14.11
+Node v14.6.0
+MongoDB shell version v4.4.3
+```
+---
 
-``npm install``
+## Running Project
 
-``npm run local``
+### Start project
+After starting the mongo service, use the following commands:
+
+```
+npm install
+npm run local
+```
+
+### Running tests
+After starting the mongo service, use the following commands:
+
+```
+npm run test
+```
+
+OR 
+
+```
+npm run test:watch
+```
