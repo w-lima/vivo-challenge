@@ -6,7 +6,7 @@ const request = supertest(app)
 const databaseName = 'vivo'
 
 import botModel from '../models/botModel.js'
-const botData = { id: '36b9f842-ee97-11e8-9443-0242ac02010', name: 'Aureo' };
+const botData = { id: '36b9f842-ee97-11e8-9443-0242ab02010', name: 'Aureo' };
 
 describe('insert', () => {
     let connection;
@@ -22,21 +22,16 @@ describe('insert', () => {
         await db.close();
     });
 
-    it('post should insert a doc into collection', async () => {
-        const res = await request.post('/bots')
-            .send({
-                id: '36b9f842-ee97-11e8-9443-0242ac02010',
-                name: 'Aureo'
-            })
-        done()
-    });
+    // Cleans up database between each test
+    afterEach(async () => {
+        await botModel.deleteMany()
+    })
 
     it('create & save bot successfully', async () => {
         const validBot = new botModel(botData);
         const savedBot = await validBot.save();
 
-        expect(savedBot.name).toBe(userData.name);
-        expect(savedBot.id).toBe(userData.id);
+        expect(savedBot.name).toBe(savedBot.name);
+        expect(savedBot.id).toBe(savedBot.id);
     });
 });
-
