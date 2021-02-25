@@ -10,8 +10,8 @@ class MessageControler {
         let query = {
             id: req.params.id
         }
-        await messageModel.findOne(query, (err, item) =>{
-            if(err){
+        await messageModel.findOne(query, (err, item) => {
+            if (err) {
                 return res.status(400).json(constants.fail)
             }
             return res.json(item)
@@ -22,8 +22,8 @@ class MessageControler {
         let query = {
             conversationId: req.query.conversationId
         }
-        await messageModel.find(query, (err, item) =>{
-            if(err){
+        await messageModel.find(query, (err, item) => {
+            if (err) {
                 return res.status(400).json(constants.fail)
             }
             return res.json(item)

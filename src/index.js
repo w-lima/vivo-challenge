@@ -4,8 +4,10 @@ import bodyParser from 'body-parser';
 import routes from './routes.js'
 const app = express()
 const port = 3000
+const databaseName = 'vivo'
 
-mongoose.connect('mongodb://localhost/vivo', { useNewUrlParser: true, useUnifiedTopology: true });
+const url = `mongodb://localhost/${databaseName}`
+mongoose.connect(url, { useNewUrlParser: true, useUnifiedTopology: true });
 
 app.use(bodyParser.json())
 app.use(routes)
