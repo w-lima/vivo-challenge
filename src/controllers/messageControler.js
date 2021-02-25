@@ -18,7 +18,7 @@ class MessageControler {
         }
         await messageModel.findOneAndUpdate(query, (err, item) => {
             if (err) {
-                return res.status(400).json(constants.fail)
+                return res.status(404).json(constants.fail)
             }
             return res.json(item)
         });
