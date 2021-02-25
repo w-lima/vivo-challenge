@@ -29,7 +29,7 @@ class BotsControler {
 
         await botModel.findOne(query, (err, item) => {
             if (err) {
-                return res.status(400).send({
+                return res.status(404).send({
                     error: err.message
                 });
             }
@@ -46,7 +46,7 @@ class BotsControler {
         }
         await botModel.findOneAndUpdate(query, update, (err, item) => {
             if (err) {
-                return res.status(400).send({
+                return res.status(404).send({
                     error: err.message
                 });
             }
