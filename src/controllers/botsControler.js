@@ -1,57 +1,55 @@
 import botModel from '../models/botModel.js'
 import constant from '../constants.js'
 class BotsControler {
-    async create(req, res) {
+    create(req, res) {
         let bot = new botModel(req.body)
-        await bot.save((err) => {
-            if (err) {
-                return res.status(409).json(constant.fail)
-            }
-            return res.json(constant.success)
+        return bot.save().then(data => {
+            return res.json(data)
         })
+            .catch(err => {
+                return res.status(500).json(constants.fail)
+            })
 
     }
 
-    async delete(req, res) {
-        await botModel.deleteOne({ id: req.params.id }, (err) => {
-            if (err) {
-                return res.status(409).json(constant.fail)
-            }
-            return res.json(constant.success)
-        })
+    delete(req, res) {
+        botModel.deleteOne({ id: req.params.id })
+            .then(data => {
+                return res.json(constant.success)
+            })
+            .catch(err => {
+                return res.status(500).json(constant.fail)
+            })
 
     }
 
-    async find(req, res) {
+    find(req, res) {
         let query = {
             id: req.params.id
         }
-
-        await botModel.findOne(query, (err, item) => {
-            if (err) {
-                return res.status(404).send({
-                    error: err.message
-                });
-            }
-            return res.json(item)
-        });
+        return botModel.findOne(query)
+            .then(data => {
+                return res.json(data)
+            })
+            .catch(err => {
+                return res.status(500).json(constants.fail)
+            });
     }
 
-    async att(req, res) {
+    att(req, res) {
         let query = {
             id: req.params.id
         }
         let update = {
             name: req.params.name
         }
-        await botModel.findOneAndUpdate(query, update, (err, item) => {
-            if (err) {
-                return res.status(404).send({
-                    error: err.message
-                });
-            }
-            return res.json(item)
-        });
+        return botModel.findOneAndUpdate(query, update)
+            .then(data => {
+                return res.json(data)
+            })
+            .catch(err => {
+                return res.status(500).json(constants.fail)
+            });
     }
 }
 
