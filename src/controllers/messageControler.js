@@ -10,7 +10,6 @@ class MessageControler {
             }
             return res.json(constants.success)
         })
-        return res.status(500).json(constant.fail);
     }
 
     async find(req, res) {
