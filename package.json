@@ -4,9 +4,9 @@
   "description": "vivo challenge",
   "main": "sr/index.js",
   "scripts": {
-    "local": "nodemon src/index.js",
-    "test": "jest --silent",
-    "test:watch": "jest --watch --silent"
+    "local": "nodemon src/index.js --trace-warnings",
+    "test": "jest --silent --coverage",
+    "test:watch": "jest --watch --silent --coverage"
   },
   "type": "module",
   "author": "William Lima",

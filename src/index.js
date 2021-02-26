@@ -7,7 +7,7 @@ const port = 3000
 const databaseName = 'vivo'
 
 const url = `mongodb://localhost/${databaseName}`
-mongoose.connect(url, { useNewUrlParser: true, useUnifiedTopology: true });
+const db = mongoose.connect(url, { useNewUrlParser: true, useUnifiedTopology: true });
 
 app.use(bodyParser.json())
 app.use(routes)

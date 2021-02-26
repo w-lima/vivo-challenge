@@ -31,8 +31,6 @@ describe('bot routes', () => {
     await botModel.deleteOne({ "id": botData.id })
   })
 
-
-
   it('bot post successfully', async (done) => {
     const response = await request.post('/bots').send(botData);
     expect(response.status).toEqual(200);
@@ -76,6 +74,15 @@ describe('message routes', () => {
   it('post successfully', async (done) => {
     const response = await request.post('/messages').send(messageData);
     expect(response.status).toEqual(200)
+    expect(response.body).not.toBeNull();
+    done();
+  });
+
+  it('post error', async (done) => {
+    let data = messageData;
+    data.timestamp = "invalid value"
+    const response = await request.post('/messages').send(data);
+    expect(response.status).toEqual(500);
     expect(response.body).not.toBeNull();
     done();
   });
