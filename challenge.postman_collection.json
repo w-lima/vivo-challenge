@@ -1,0 +1,196 @@
+{
+	"info": {
+		"_postman_id": "82faac3b-ea64-4044-998c-781669eb60da",
+		"name": "vivo challenge",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+	},
+	"item": [
+		{
+			"name": "bots",
+			"request": {
+				"method": "DELETE",
+				"header": [],
+				"url": {
+					"raw": "http://localhost:3000/bots/36b9f842-ee97-11e8-9443-0242ac120002",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "3000",
+					"path": [
+						"bots",
+						"36b9f842-ee97-11e8-9443-0242ac120002"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "bots",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://localhost:3000/bots/36b9f842-ee97-11e8-9423-0242ac02112",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "3000",
+					"path": [
+						"bots",
+						"36b9f842-ee97-11e8-9423-0242ac02112"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "bots",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n \"id\": \"36b9f842-ee97-11e8-9443-0242ac120002\",\n \"name\": \" leandra\"\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:3000/bots",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "3000",
+					"path": [
+						"bots"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "bots",
+			"request": {
+				"method": "PUT",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n \"id\": \"36b9f842-ee97-11e8-9443-0242ac120002\",\n \"name\": \"Aureo\"\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:3000/bots",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "3000",
+					"path": [
+						"bots"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "message with query",
+			"protocolProfileBehavior": {
+				"disableBodyPruning": true
+			},
+			"request": {
+				"method": "GET",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n \"id\": \"36b9f842-ee97-11e8-9443-0242ac120002\",\n \"name\": \"Aureo\"\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:3000/messages?conversationId=7665ada8-3448-4acd-a1b7-d688e68fe9a1",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "3000",
+					"path": [
+						"messages"
+					],
+					"query": [
+						{
+							"key": "conversationId",
+							"value": "7665ada8-3448-4acd-a1b7-d688e68fe9a1"
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "message",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n \"conversationId\": \"7665ada8-3448-4acd-a1b7-d688e68fe9a1\",\n \"timestamp\": \"2018-11-16T23:30:52.6917722Z\",\n \"from\": \"36b9f842-ee97-11e8-9443-0242ac120002\",\n \"to\": \"16edd3b3-3f75-40df-af07-2a3813a79ce9\",\n \"text\": \"Oi! Como posso te ajudar?\"\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:3000/messages",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "3000",
+					"path": [
+						"messages"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "message with params",
+			"protocolProfileBehavior": {
+				"disableBodyPruning": true
+			},
+			"request": {
+				"method": "GET",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": ""
+				},
+				"url": {
+					"raw": "http://localhost:3000/messages",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "3000",
+					"path": [
+						"messages"
+					]
+				}
+			},
+			"response": []
+		}
+	]
+}
