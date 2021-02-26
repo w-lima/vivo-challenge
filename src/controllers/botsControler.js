@@ -39,14 +39,14 @@ class BotsControler {
 
     att(req, res) {
         let query = {
-            id: req.params.id
+            id: req.body.id
         }
         let update = {
-            name: req.params.name
+            name: req.body.name
         }
         return botModel.findOneAndUpdate(query, update)
             .then(data => {
-                return res.json(data)
+                return res.json(constant.success)
             })
             .catch(err => {
                 return res.status(500).json(constants.fail)

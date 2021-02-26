@@ -1,6 +1,6 @@
 import mongoose from 'mongoose'
 
-const databaseName = 'vivo'
+const databaseName = 'test'
 
 import messageModel from '../models/messageModel'
 const messageData = {

@@ -1,6 +1,6 @@
 import mongoose from 'mongoose'
 
-const databaseName = 'vivo'
+const databaseName = 'test'
 
 import botModel from '../models/botModel.js'
 const botData = { id: '36b9f842-ee97-11e8-9443-0242ab02010', name: 'Aureo' };

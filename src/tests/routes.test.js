@@ -38,6 +38,18 @@ describe('bot routes', () => {
     done();
   });
 
+  it('bot put successfully', async (done) => {
+    await request.post('/bots').send(botData);
+    let attBot = botData;
+    attBot.name= "Jose";
+    const response = await request.put('/bots').send(attBot);
+    expect(response.status).toEqual(200);
+
+    let result = await botModel.findOne({ "id": botData.id });
+    expect(result.name).toEqual(attBot.name);
+    done();
+  });
+
   it('bot post without id failed', async (done) => {
     const response = await request.post('/bots').send({
       "name": botData.name
@@ -52,6 +64,17 @@ describe('bot routes', () => {
       "id": botData.id
     });
     expect(response.status).toEqual(400);
+    expect(response.body).not.toBeNull();
+    done();
+  });
+
+  it('bot get successfully', async (done) => {
+
+    const validBot = new botModel(botData);
+    await validBot.save();
+
+    let response = await request.get(`/bots/${botData.id}`);
+    expect(response.status).toEqual(200);
     expect(response.body).not.toBeNull();
     done();
   });
