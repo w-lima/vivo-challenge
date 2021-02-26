@@ -17,7 +17,7 @@ class MessageControler {
         let query = {
             id: req.params.id
         }
-        return messageModel.findOneAndUpdate(query)
+        return messageModel.findOne(query)
             .then(data => {
                 return res.json(data)
             })

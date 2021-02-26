@@ -1,8 +1,9 @@
 import mongoose from 'mongoose';
+import { v4 as uuidv4 } from 'uuid';
 
 const MessageSchema = mongoose.Schema(
   {
-    id: {type: String, unique : true,dropDups: true},
+    id: {type: String, unique : true,default: uuidv4},
     conversationId: {type: String},
     timestamp: { type: Date, default: Date.now },
     from: {type: String},
