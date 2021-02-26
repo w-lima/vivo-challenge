@@ -3,7 +3,7 @@ import { v4 as uuidv4 } from 'uuid';
 
 const MessageSchema = mongoose.Schema(
   {
-    id: {type: String, unique : true,default: uuidv4},
+    id: {type: String, unique : true,default: uuidv4, index: true},
     conversationId: {type: String},
     timestamp: { type: Date, default: Date.now },
     from: {type: String},

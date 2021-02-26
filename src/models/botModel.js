@@ -3,7 +3,7 @@ import { v4 as uuidv4 } from 'uuid';
 
 const BotSchema = mongoose.Schema(
   {
-    id: {type: String, unique : true,default: uuidv4} ,
+    id: {type: String, unique : true, default: uuidv4, index: true} ,
     name: {type: String}
   }
 );
