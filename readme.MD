@@ -5,6 +5,19 @@ This project consist of a HTTP/REST backend and a database
 For check which endpoints and how to use them, please use the postman collection that is at the root of the directory.
 
 ---
+
+## Stack
+
+For this project we use: 
+
+Node.JS for Backend 
+
+MongoDB for database
+
+Jest + Supertest for tests
+
+---
+
 ## Versions
 To run the service, the following versions were used:
 
