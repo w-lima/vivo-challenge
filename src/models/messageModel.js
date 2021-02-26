@@ -2,6 +2,7 @@ import mongoose from 'mongoose';
 
 const MessageSchema = mongoose.Schema(
   {
+    id: {type: String, unique : true,dropDups: true},
     conversationId: {type: String},
     timestamp: { type: Date, default: Date.now },
     from: {type: String},

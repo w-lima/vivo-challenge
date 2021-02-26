@@ -21,7 +21,6 @@ class BotsControler {
             .catch(err => {
                 return res.status(500).json(constant.fail)
             })
-
     }
 
     find(req, res) {

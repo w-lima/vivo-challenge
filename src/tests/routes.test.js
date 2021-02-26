@@ -7,6 +7,7 @@ const request = supertest.agent(app)
 const botData = { id: '36b9f842-ee97-11e8-9443-0242ab02010', name: 'Aureo' };
 let server;
 const messageData = {
+  "id": "16edd3b3-3f75-40df-af07-2a3813a79ce9",
   "conversationId": "7665ada8-3448-4acd-a1b7-d688e68fe9a1",
   "timestamp": "2018-11-16T23:30:52.6917722Z",
   "from": "36b9f842-ee97-11e8-9443-0242ac120002",
@@ -79,6 +80,19 @@ describe('bot routes', () => {
     done();
   });
 
+  it('bot del successfully', async (done) => {
+
+    const validBot = new botModel(botData);
+    await validBot.save();
+
+    let response = await request.del(`/bots/${botData.id}`);
+    let deletedBot = await botModel.findOne ({id: botData.id});
+    expect(response.status).toEqual(200);
+    expect(response.body).not.toBeNull();
+    expect(deletedBot).toBeNull();
+    done();
+  });
+
   it('get without parms should not exist', async (done) => {
     const response = await request.get('/bots');
 
@@ -91,7 +105,7 @@ describe('bot routes', () => {
 describe('message routes', () => {
 
   afterEach(async () => {
-
+    await messageModel.deleteOne({ "id": messageData.id })
   })
 
   it('post successfully', async (done) => {
@@ -102,7 +116,7 @@ describe('message routes', () => {
   });
 
   it('post error', async (done) => {
-    let data = messageData;
+    let data = JSON.parse(JSON.stringify(messageData));
     data.timestamp = "invalid value"
     const response = await request.post('/messages').send(data);
     expect(response.status).toEqual(500);
@@ -110,7 +124,21 @@ describe('message routes', () => {
     done();
   });
 
+  
   it('get with parms be a 200 status', async (done) => {
+    const validMessage = new messageModel(messageData);
+    await validMessage.save();
+
+    const response = await request.get(`/messages/${messageData.id}`);
+
+    expect(response.status).toEqual(200);
+    expect(response.body.id).toEqual(messageData.id);
+    expect(response.body.text).toEqual(messageData.text);
+    expect(response.body.to).toEqual(messageData.to);
+    done();
+  });
+
+  it('get with query parms be a 200 status', async (done) => {
     const response = await request.get('/messages')
       .query({ conversationId: messageData.conversationId });
 
